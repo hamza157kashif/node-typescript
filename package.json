@@ -1,0 +1,27 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./build/index.js",
+    "build": "tsc.cmd -p .",
+    "dev": "nodemon ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamza157kashif/node-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamza157kashif/node-typescript/issues"
+  },
+  "homepage": "https://github.com/hamza157kashif/node-typescript#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.13",
+    "@types/node": "^17.0.13"
+  }
+}
