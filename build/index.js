@@ -1,36 +1,18 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
+const anchor = document.querySelector('a');
+if (anchor) {
+    console.log(anchor.href);
+}
+console.log(anchor.href);
+//const form = document.querySelector('form')!;
+const form = document.querySelector('.new-item-form');
+console.log(form.children);
+// inputs
+const type = document.querySelector('#type');
+const tofrom = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
 });
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const employee_1 = require("./employee");
-const readlineSync = __importStar(require("readline"));
-let rl = readlineSync.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-var name = '';
-rl.question('Enter your name', (answer) => {
-    name = answer;
-});
-//let age:number=undefined;
-//let dept:string=undefined;
-let p = new employee_1.Employee(name, 21, 'Sales');
-p.greetings();
-console.log('Salary=', p.getSalary());
