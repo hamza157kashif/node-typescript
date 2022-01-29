@@ -1,10 +1,8 @@
-const anchor = document.querySelector('a')!;
-if(anchor) {
-  console.log(anchor.href);
-}
-console.log(anchor.href);
+import { Iformat } from "./Iformat";
+import { Invoice } from "./invoice";
+import { ListTemplate } from "./list";
+import { Payment } from "./payment";
 
-//const form = document.querySelector('form')!;
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 console.log(form.children);
 
@@ -14,13 +12,19 @@ const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+// list template instance
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
-  console.log(
-    type.value, 
-    tofrom.value, 
-    details.value, 
-    amount.valueAsNumber
-  );
+  let doc: Iformat;
+  if (type.value === 'invoice') {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+  }
+  
+  list.render(doc, type.value, 'end');
 });

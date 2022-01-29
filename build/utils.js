@@ -19,16 +19,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const employee_1 = require("./employee");
-const readlineSync = __importStar(require("readline"));
-let rl = readlineSync.createInterface({
+var employee_1 = require("./employee");
+var readlineSync = __importStar(require("readline"));
+var rl = readlineSync.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 var name = '';
-rl.question('Enter your name', (answer) => {
+rl.question('Enter your name', function (answer) {
     name = answer;
 });
-let p = new employee_1.Employee('Hamza', 21, 'Sales');
+var p = new employee_1.Employee('Hamza', 21, 'Sales');
 p.greetings();
 console.log('Salary=', p.getSalary());

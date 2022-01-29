@@ -1,18 +1,26 @@
 "use strict";
-const anchor = document.querySelector('a');
-if (anchor) {
-    console.log(anchor.href);
-}
-console.log(anchor.href);
-//const form = document.querySelector('form')!;
-const form = document.querySelector('.new-item-form');
+Object.defineProperty(exports, "__esModule", { value: true });
+var invoice_1 = require("./invoice");
+var list_1 = require("./list");
+var payment_1 = require("./payment");
+var form = document.querySelector('.new-item-form');
 console.log(form.children);
 // inputs
-const type = document.querySelector('#type');
-const tofrom = document.querySelector('#tofrom');
-const details = document.querySelector('#details');
-const amount = document.querySelector('#amount');
-form.addEventListener('submit', (e) => {
+var type = document.querySelector('#type');
+var tofrom = document.querySelector('#tofrom');
+var details = document.querySelector('#details');
+var amount = document.querySelector('#amount');
+// list template instance
+var ul = document.querySelector('ul');
+var list = new list_1.ListTemplate(ul);
+form.addEventListener('submit', function (e) {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+    var doc;
+    if (type.value === 'invoice') {
+        doc = new invoice_1.Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new payment_1.Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    list.render(doc, type.value, 'end');
 });
