@@ -1,7 +1,7 @@
-import { Iformat } from "./Iformat";
-import { Invoice } from "./invoice";
-import { ListTemplate } from "./list";
-import { Payment } from "./payment";
+import { Iformat} from "./Iformat.js";
+import { Invoice } from "./invoice.js";
+import { ListTemplate } from "./list.js";
+import { Payment } from "./payment.js";
 
 const form = document.querySelector('.new-item-form') as HTMLFormElement;
 console.log(form.children);
